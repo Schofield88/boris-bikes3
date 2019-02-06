@@ -9,9 +9,13 @@ describe DockingStation do
     end
 
   it 'can make docking possible' do
-    red_bike = subject.release_bike
-    expect(red_bike).to respond_to :dock
+    expect(subject).to respond_to :dock
   end
 
+   it "can get a bike and dock" do
+     bike = Bike.new
+     subject.dock(bike)
+     expect(subject.bike).to eq bike
 
-end
+   end
+  end
