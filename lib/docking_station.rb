@@ -7,10 +7,10 @@ class DockingStation
   end
 
   def release_bike
-    if @bikes == nil
+    if @bikes.length == 0
       raise("no bikes to release")
     else
-      @bikes
+      @bikes.first
     end
 
   end
