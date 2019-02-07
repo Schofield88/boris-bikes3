@@ -14,6 +14,7 @@ attr_reader :bike
   end
 
   def dock(bike)
+    raise("Too many bikes") if @bike != nil
     @bike = bike
   end
 end
