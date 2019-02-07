@@ -35,4 +35,12 @@ describe DockingStation do
      expect(subject.bike).to eq bike
 
    end
+
+  it "will not let you dock more than one bike" do
+    station = DockingStation.new
+    station.dock(Bike.new)
+    expect{station.dock(Bike.new)}.to raise_error("Too many bikes")
+
+  end
+
   end
