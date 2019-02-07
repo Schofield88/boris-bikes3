@@ -32,7 +32,7 @@ describe DockingStation do
    it "can get a bike and dock" do
      bike = Bike.new
      subject.dock(bike)
-     expect(subject.bike).to eq bike
+     expect(subject.bikes).to include bike
 
    end
 
