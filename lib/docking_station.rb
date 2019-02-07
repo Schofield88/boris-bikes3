@@ -7,16 +7,23 @@ class DockingStation
   end
 
   def release_bike
-    if @bikes.length == 0
-      raise("no bikes to release")
-    else
-      @bikes.first
+    raise("no bikes to release") if empty?
+    @bikes.first
     end
 
-  end
-
   def dock(bike)
-    raise("Too many bikes") if @bikes.length >= 20
+    raise("Too many bikes") if full?
     @bikes << bike
   end
+
+ private
+ 
+  def full?
+    @bikes.length == 20
+  end
+
+  def empty?
+    @bikes.length == 0
+  end
+
 end
