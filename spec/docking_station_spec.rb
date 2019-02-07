@@ -51,7 +51,14 @@ describe DockingStation do
 
   it "tells us that the default capacity is 20" do
     station = DockingStation.new
-    expect(station.capacity).to eq 20 
+    expect(station.capacity).to eq 20
+
+  end
+
+  it "allows us to set the capacity to 50" do
+    station = DockingStation.new
+    station.capacity(50)
+    expect(station.capacity).to eq 50
 
   end
 
