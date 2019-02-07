@@ -36,15 +36,15 @@ describe DockingStation do
 
    end
 
-   it "can dock up to 20 bikes" do
+   it "can dock up to maximum capacity" do
      shed = DockingStation.new
-     DockingStation::DEFAULT_CAPACITY.times {shed.dock Bike.new}
-     expect(shed.bikes.length).to eq(DockingStation::DEFAULT_CAPACITY)
+     shed.capacity.times {shed.dock Bike.new}
+     expect(shed.bikes.length).to eq(shed.capacity)
    end
 
-  it "will not let you dock more than 21 bikes" do
+  it "will not let you dock more than maximum capacity" do
     station = DockingStation.new
-    DockingStation::DEFAULT_CAPACITY.times {station.dock Bike.new}
+    station.capacity.times {station.dock Bike.new}
 
     expect{station.dock(Bike.new)}.to raise_error("Too many bikes")
   end
@@ -56,8 +56,7 @@ describe DockingStation do
   end
 
   it "allows us to set the capacity to 50" do
-    station = DockingStation.new
-    station.capacity(50)
+    station = DockingStation.new(50)
     expect(station.capacity).to eq 50
 
   end
