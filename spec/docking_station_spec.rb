@@ -36,11 +36,17 @@ describe DockingStation do
 
    end
 
-  it "will not let you dock more than one bike" do
-    station = DockingStation.new
-    station.dock(Bike.new)
-    expect{station.dock(Bike.new)}.to raise_error("Too many bikes")
+   it "can dock up to 20 bikes" do
+     shed = DockingStation.new
+     20.times {shed.dock Bike.new}
+     expect(shed.bikes.length).to eq(20)
+   end
 
-  end
+#  it "will not let you dock more than 21 bike" do
+#    station = DockingStation.new
+#    station.dock(Bike.new)
+#    expect{station.dock(Bike.new)}.to raise_error("Too many bikes")
+
+#  end
 
   end
