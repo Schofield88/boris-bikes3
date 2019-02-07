@@ -49,4 +49,10 @@ describe DockingStation do
     expect{station.dock(Bike.new)}.to raise_error("Too many bikes")
   end
 
+  it "tells us that the default capacity is 20" do
+    station = DockingStation.new
+    expect(station.capacity).to eq 20 
+
+  end
+
   end
