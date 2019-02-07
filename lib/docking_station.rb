@@ -5,7 +5,12 @@ attr_reader :bike
 
 
   def release_bike
-    @bike
+    if @bike == nil
+      raise("no bikes to release")
+    else
+      @bike
+    end
+
   end
 
   def dock(bike)

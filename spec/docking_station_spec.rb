@@ -13,7 +13,7 @@ describe DockingStation do
   it 'cannot release a bike if there is not a bike in the docking station' do
     station = DockingStation.new
 
-    expect{station.release_bike}.to raise_error("no bikes to relase")
+    expect{station.release_bike}.to raise_error("no bikes to release")
 
   end
 
